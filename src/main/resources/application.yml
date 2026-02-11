@@ -3,9 +3,9 @@ spring:
     name: resume-builder-backend
 
   datasource:
-    url: jdbc:mysql://localhost:3306/resume_builder?useSSL=false&serverTimezone=UTC
-    username: root
-    password: password
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
   jpa:
     hibernate:
@@ -17,6 +17,7 @@ spring:
 
 server:
   port: ${PORT:8080}
+
 
 app:
   jwt:
