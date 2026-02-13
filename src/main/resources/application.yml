@@ -3,8 +3,10 @@ spring:
     name: resume-builder-backend
 
   datasource:
-    url: ${DATABASE_URL}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/${MYSQLDATABASE}
+      username: ${MYSQLUSER}
+      password: ${MYSQLPASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
