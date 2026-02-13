@@ -13,10 +13,22 @@ spring:
       ddl-auto: update
     open-in-view: false
 
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+        provider:
+          google:
+            issuer-uri: https://accounts.google.com
+
 server:
   port: ${PORT:8080}
-
-
 
 app:
   jwt:
@@ -24,6 +36,7 @@ app:
     expiration-ms: 86400000
 
   oauth2:
+    # For now keep localhost since frontend not deployed
     authorized-redirect-uri: http://localhost:5173/auth/callback
 
 logging:
