@@ -3,15 +3,16 @@ spring:
     name: resume-builder-backend
 
   datasource:
-    url: jdbc:mysql://${MYSQLHOST}:${MYSQLPORT}/${MYSQLDATABASE}
-    username: ${MYSQLUSER}
-    password: ${MYSQLPASSWORD}
+    url: ${DATABASE_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
   security:
     oauth2:
@@ -36,7 +37,6 @@ app:
     expiration-ms: 86400000
 
   oauth2:
-    # For now keep localhost since frontend not deployed
     authorized-redirect-uri: http://localhost:5173/auth/callback
 
 logging:
